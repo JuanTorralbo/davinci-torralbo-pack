@@ -1,0 +1,140 @@
+{
+	Tools = ordered() {
+		BlurBloom = GroupOperator {
+			CtrlWZoom = false,
+			NameSet = true,
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "BlurAmt",
+					Source = "SecondOperand",
+					Name = "Desenfoque",
+					Default = 99.55555556,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Glow",
+					Source = "Gain",
+					Name = "Intensidad de luz",
+					Default = 1.26,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Glow",
+					Source = "Saturation",
+					Name = "Saturación",
+					Default = 0.92,
+				},
+				MainInput1 = InstanceInput {
+					SourceOp = "Dis",
+					Source = "Background",
+				},
+				MainInput2 = InstanceInput {
+					SourceOp = "Dis",
+					Source = "Foreground",
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Glow",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				MixC = LUTLookup {
+					CtrlWZoom = false,
+					Inputs = {
+						Source = Input { Value = FuID { "Transition" }, },
+						Curve = Input { Value = FuID { "Easing" }, },
+						EaseIn = Input { Value = FuID { "Expo" }, },
+						EaseOut = Input { Value = FuID { "Expo" }, },
+						Lookup = Input {
+							SourceOp = "MixCLookup",
+							Source = "Value",
+						},
+					},
+				},
+				MixCLookup = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.3333333333, 0.3333333333 } },
+							[1] = { 1, LH = { 0.6666666667, 0.6666666667 } }
+						}
+					},
+					SplineColor = { Red = 255, Green = 255, Blue = 255 },
+				},
+				Dis = Dissolve {
+					Transitions = {
+						[0] = "DFTDissolve"
+					},
+					CtrlWZoom = false,
+					Inputs = {
+						Mix = Input { SourceOp = "MixC", Source = "Value", },
+					},
+					ViewInfo = OperatorInfo { Pos = { -90, 50 } },
+				},
+				EnvC = LUTLookup {
+					CtrlWZoom = false,
+					Inputs = {
+						Source = Input { Value = FuID { "Transition" }, },
+						Curve = Input { Value = FuID { "Custom" }, },
+						EaseIn = Input { Value = FuID { "Sine" }, },
+						EaseOut = Input { Value = FuID { "Sine" }, },
+						Lookup = Input {
+							SourceOp = "EnvCLookup",
+							Source = "Value",
+						},
+					},
+				},
+				EnvCLookup = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.13, 0.62 } },
+							[0.34] = { 1, LH = { 0.23, 1 }, RH = { 0.45, 1 } },
+							[0.66] = { 1, LH = { 0.55, 1 }, RH = { 0.77, 1 } },
+							[1] = { 0, LH = { 0.87, 0.62 } }
+						}
+					},
+					SplineColor = { Red = 255, Green = 255, Blue = 255 },
+				},
+				Mov = Transform {
+					CtrlWZoom = false,
+					Inputs = {
+						Input = Input { SourceOp = "Dis", Source = "Output", },
+						Blend = Input { SourceOp = "EnvC", Source = "Value", },
+						Size = Input { Value = 1.03, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 40, 50 } },
+				},
+				BlurAmt = Calculation {
+					CtrlWZoom = false,
+					Inputs = {
+						FirstOperand = Input { SourceOp = "EnvC", Source = "Value", },
+						SecondOperand = Input { Value = 99.55555556, },
+						Operator = Input { Value = 2, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 170, 50 } },
+				},
+				Blr = Blur {
+					CtrlWZoom = false,
+					Inputs = {
+						Filter = Input { Value = FuID { "Gaussian" }, },
+						Input = Input { SourceOp = "Mov", Source = "Output", },
+						XBlurSize = Input { SourceOp = "BlurAmt", Source = "Result", },
+					},
+					ViewInfo = OperatorInfo { Pos = { 300, 50 } },
+				},
+				Glow = BrightnessContrast {
+					CtrlWZoom = false,
+					Inputs = {
+						Input = Input { SourceOp = "Blr", Source = "Output", },
+						Blend = Input { SourceOp = "EnvC", Source = "Value", },
+						Gain = Input { Value = 1.26, },
+						Brightness = Input { Value = 0.02, },
+						Saturation = Input { Value = 0.92, },
+					},
+					ViewInfo = OperatorInfo { Pos = { -220, 90 } },
+				},
+			},
+		}
+	},
+	ActiveTool = "BlurBloom"
+}

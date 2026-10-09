@@ -1,0 +1,121 @@
+{
+    Tools = ordered() {
+        ResaltadorAmarillo = MacroOperator {
+            Inputs = ordered() {
+                MainInput1 = InstanceInput {
+                    SourceOp = "Merge2",
+                    Source = "Background",
+                },
+                Texto = InstanceInput {
+                    SourceOp = "Text1",
+                    Source = "StyledText",
+                    Name = "Texto a Resaltar",
+                },
+                Fuente = InstanceInput {
+                    SourceOp = "Text1",
+                    Source = "Font",
+                    Name = "Fuente",
+                },
+                ColorResaltado = InstanceInput {
+                    SourceOp = "Background1",
+                    Source = "Color",
+                    Name = "Color del Resaltado",
+                },
+                OpacidadResaltado = InstanceInput {
+                    SourceOp = "Background1",
+                    Source = "Opacity",
+                    Name = "Opacidad del Resaltado",
+                },
+                PosicionResaltado = InstanceInput {
+                    SourceOp = "RectangleMask1",
+                    Source = "Center",
+                    Name = "Posición del Resaltado",
+                },
+                AnchoResaltado = InstanceInput {
+                    SourceOp = "RectangleMask1",
+                    Source = "Width",
+                    Name = "Ancho del Resaltado",
+                },
+                AltoResaltado = InstanceInput {
+                    SourceOp = "RectangleMask1",
+                    Source = "Height",
+                    Name = "Alto del Resaltado",
+                }
+            },
+            Outputs = {
+                MainOutput1 = InstanceOutput {
+                    SourceOp = "Merge2",
+                    Source = "Output",
+                }
+            },
+            ViewInfo = GroupInfo { Pos = { 0, 0 } },
+            Tools = ordered() {
+                Text1 = TextPlus {
+                    Inputs = {
+                        GlobalIn = Input { Value = 0, },
+                        GlobalOut = Input { Value = 100, },
+                        Width = Input { Value = 1920, },
+                        Height = Input { Value = 1080, },
+                        StyledText = Input { Value = "Texto de Ejemplo", },
+                        Font = Input { Value = "Open Sans", },
+                        Style = Input { Value = "Bold", },
+                        VerticalJustificationNew = Input { Value = 3, },
+                        HorizontalJustificationNew = Input { Value = 3, },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { -200, 0 } },
+                },
+                Background1 = Background {
+                    Inputs = {
+                        Width = Input { Value = 1920, },
+                        Height = Input { Value = 1080, },
+                        Color = Input { Value = { 1, 1, 0, 1 }, },
+                        Opacity = Input { Value = 0.6, },
+                        EffectMask = Input {
+                            SourceOp = "RectangleMask1",
+                            Source = "Mask",
+                        },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { -200, 100 } },
+                },
+                RectangleMask1 = RectangleMask {
+                    Inputs = {
+                        Center = Input { Value = { 0.5, 0.4 }, },
+                        Width = Input { Value = 0.4, },
+                        Height = Input { Value = 0.08, },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { -200, 200 } },
+                },
+                Merge1 = Merge {
+                    Inputs = {
+                        Background = Input {
+                            SourceOp = "Background1",
+                            Source = "Output",
+                        },
+                        Foreground = Input {
+                            SourceOp = "Text1",
+                            Source = "Output",
+                        },
+                        Blend = Input { Value = 1, },
+                        PerformDepthMerge = Input { Value = 0, },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { 0, 100 } },
+                },
+                Merge2 = Merge {
+                    Inputs = {
+                        Background = Input {
+                            SourceOp = "MainInput1",
+                            Source = "Output",
+                        },
+                        Foreground = Input {
+                            SourceOp = "Merge1",
+                            Source = "Output",
+                        },
+                        PerformDepthMerge = Input { Value = 0, },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { 200, 100 } },
+                },
+            },
+        },
+    },
+    ActiveTool = "ResaltadorAmarillo",
+}

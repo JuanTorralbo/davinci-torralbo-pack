@@ -1,4 +1,3 @@
-> Licencia MIT. Gratis y de código abierto.
 # DaVinci Torralbo Pack
 
 Recursos desarrollados por Juan Torralbo, en parte con ayuda de IA. Versión en desarrollo, preparada para DaVinci Resolve Studio 21.1 en macOS. Compartidos gratuitamente y con código abierto bajo licencia MIT; consulta LICENSE.txt. Las futuras mejoras y actualizaciones podrán incorporarse al pack.

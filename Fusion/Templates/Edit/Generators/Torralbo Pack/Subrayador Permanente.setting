@@ -1,0 +1,184 @@
+{
+	Tools = ordered() {
+		SubrayadorPermanente = MacroOperator {
+			NameSet = true,
+			Inputs = ordered() {
+				StartPoint = InstanceInput {
+					SourceOp = "StartHandle",
+					Source = "Center",
+					Name = "1. Punto inicial",
+				},
+				EndPoint = InstanceInput {
+					SourceOp = "EndHandle",
+					Source = "Center",
+					Name = "2. Punto final",
+				},
+				Thickness = InstanceInput {
+					SourceOp = "MarkerMask",
+					Source = "Height",
+					Name = "Grosor",
+					Default = 0.055,
+				},
+				Softness = InstanceInput {
+					SourceOp = "MarkerMask",
+					Source = "SoftEdge",
+					Name = "Suavidad del borde",
+					Default = 0.002,
+				},
+				Roughness = InstanceInput {
+					SourceOp = "TextureDisplace",
+					Source = "XRefraction",
+					Name = "Rugosidad",
+					Default = 0.0015,
+				},
+				VerticalMovement = InstanceInput {
+					SourceOp = "TextureDisplace",
+					Source = "YRefraction",
+					Name = "Movimiento vertical",
+					Default = 0.004,
+				},
+				Red = InstanceInput {
+					SourceOp = "MarkerColor",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 2,
+					Default = 1,
+				},
+				Green = InstanceInput {
+					SourceOp = "MarkerColor",
+					Source = "TopLeftGreen",
+					ControlGroup = 2,
+					Default = 0.82,
+				},
+				Blue = InstanceInput {
+					SourceOp = "MarkerColor",
+					Source = "TopLeftBlue",
+					ControlGroup = 2,
+					Default = 0.05,
+				},
+				Opacity = InstanceInput {
+					SourceOp = "MarkerColor",
+					Source = "TopLeftAlpha",
+					Name = "Opacidad",
+					Default = 0.58,
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "TextureDisplace",
+					Source = "Output",
+					Name = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 0, 0 },
+				Flags = {
+					AllowPan = false,
+					ConnectedSnap = true,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Direction = "Horizontal",
+				PipeStyle = "Direct"
+			},
+			Tools = ordered() {
+				StartHandle = EllipseMask {
+					CtrlWZoom = false,
+					Inputs = {
+						GlobalIn = Input { Value = -200000, },
+						GlobalOut = Input { Value = 200000, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Level = Input { Value = 0, },
+						Center = Input { Value = { 0.25, 0.62 }, },
+						Width = Input { Value = 0.01, },
+						Height = Input { Value = 0.01, },
+					},
+					ViewInfo = OperatorInfo { Pos = { -330, -66 } },
+				},
+				EndHandle = EllipseMask {
+					CtrlWZoom = false,
+					Inputs = {
+						GlobalIn = Input { Value = -200000, },
+						GlobalOut = Input { Value = 200000, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Level = Input { Value = 0, },
+						Center = Input { Value = { 0.75, 0.62 }, },
+						Width = Input { Value = 0.01, },
+						Height = Input { Value = 0.01, },
+					},
+					ViewInfo = OperatorInfo { Pos = { -330, 66 } },
+				},
+				MarkerMask = RectangleMask {
+					CtrlWZoom = false,
+					Inputs = {
+						GlobalIn = Input { Value = -200000, },
+						GlobalOut = Input { Value = 200000, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						Center = Input {
+							Value = { 0.5, 0.62 },
+							Expression = "Point(StartHandle.Center.X + (EndHandle.Center.X - StartHandle.Center.X) * min(max((time - comp.RenderStart) / max(comp.RenderEnd - comp.RenderStart, 1), 0), 1) / 2, StartHandle.Center.Y + (EndHandle.Center.Y - StartHandle.Center.Y) * min(max((time - comp.RenderStart) / max(comp.RenderEnd - comp.RenderStart, 1), 0), 1) / 2)",
+						},
+						Width = Input {
+							Value = 0.5,
+							Expression = "sqrt((EndHandle.Center.X - StartHandle.Center.X)^2 + (EndHandle.Center.Y - StartHandle.Center.Y)^2) * min(max((time - comp.RenderStart) / max(comp.RenderEnd - comp.RenderStart, 1), 0), 1)",
+						},
+						Height = Input { Value = 0.055, },
+						CornerRadius = Input { Value = 0.5, },
+						Angle = Input {
+							Value = 0,
+							Expression = "atan2(EndHandle.Center.Y - StartHandle.Center.Y, EndHandle.Center.X - StartHandle.Center.X) * 180 / pi",
+						},
+						SoftEdge = Input { Value = 0.002, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+				},
+				MarkerColor = Background {
+					CtrlWZoom = false,
+					Inputs = {
+						GlobalIn = Input { Value = -200000, },
+						GlobalOut = Input { Value = 200000, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						TopLeftRed = Input { Value = 1, },
+						TopLeftGreen = Input { Value = 0.82, },
+						TopLeftBlue = Input { Value = 0.05, },
+						TopLeftAlpha = Input { Value = 0.58, },
+						EffectMask = Input { SourceOp = "MarkerMask", Source = "Mask", },
+					},
+					ViewInfo = OperatorInfo { Pos = { 110, 0 } },
+				},
+				PaperTexture = FastNoise {
+					CtrlWZoom = false,
+					Inputs = {
+						GlobalIn = Input { Value = -200000, },
+						GlobalOut = Input { Value = 200000, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Detail = Input { Value = 4, },
+						Contrast = Input { Value = 1.65, },
+						Brightness = Input { Value = 0.5, },
+						XScale = Input { Value = 7, },
+						Seethe = Input { Value = 0.23, },
+						Discontinuous = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 110, 110 } },
+				},
+				TextureDisplace = Displace {
+					CtrlWZoom = false,
+					Inputs = {
+						Type = Input { Value = 1, },
+						XRefraction = Input { Value = 0.0015, },
+						YRefraction = Input { Value = 0.004, },
+						Input = Input { SourceOp = "MarkerColor", Source = "Output", },
+						Foreground = Input { SourceOp = "PaperTexture", Source = "Output", },
+					},
+					ViewInfo = OperatorInfo { Pos = { 330, 0 } },
+				}
+			}
+		}
+	},
+	ActiveTool = "SubrayadorPermanente"
+}

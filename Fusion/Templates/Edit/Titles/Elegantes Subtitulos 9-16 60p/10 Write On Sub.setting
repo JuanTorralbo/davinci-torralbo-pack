@@ -1,0 +1,174 @@
+{
+	Tools = ordered() {
+		WriteOnSub = GroupOperator {
+			CtrlWZoom = false,
+			NameSet = true,
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "TText",
+					Source = "StyledText",
+					Name = "Texto",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "TText",
+					Source = "Size",
+					Name = "Tamaño",
+					Default = 0.15,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "TText",
+					Source = "Font",
+					Name = "Fuente",
+					ControlGroup = 10,
+				},
+				Input4 = InstanceInput {
+					SourceOp = "TText",
+					Source = "Style",
+					ControlGroup = 10,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "TText",
+					Source = "CharacterSpacing",
+					Name = "Interletraje",
+					Default = 0.98,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "TText",
+					Source = "LineSpacing",
+					Name = "Separación de líneas",
+					Default = 1,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "TText",
+					Source = "Alpha1",
+					Name = "Opacidad",
+					Default = 1,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "TText",
+					Source = "Red1",
+					Name = "Color",
+					ControlGroup = 11,
+					Default = 1,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "TText",
+					Source = "Green1",
+					ControlGroup = 11,
+					Default = 1,
+				},
+				Input10 = InstanceInput {
+					SourceOp = "TText",
+					Source = "Blue1",
+					ControlGroup = 11,
+					Default = 1,
+				},
+				Input11 = InstanceInput {
+					SourceOp = "TText",
+					Source = "Center",
+					Name = "Posición",
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Stretch",
+					Source = "Result",
+					Name = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 0, 0 },
+				Flags = {
+					AllowPan = false,
+					ConnectedSnap = true,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 330, 66.4, 165, 24.2 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { 0, 0 }
+			},
+			Tools = ordered() {
+				BG = Background {
+					CtrlWZoom = false,
+					Inputs = {
+						GlobalOut = Input { Value = 20000, },
+						Width = Input { Value = 2160, },
+						Height = Input { Value = 3840, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						TopLeftRed = Input { Value = 0, },
+						TopLeftGreen = Input { Value = 0, },
+						TopLeftBlue = Input { Value = 0, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { -110, 49 } },
+				},
+				TEnd = BezierSpline {
+					SplineColor = { Red = 233, Green = 166, Blue = 63 },
+					NameSet = true,
+					KeyFrames = {
+						[0] = { 0, RH = { 44.64, 0.02 } },
+						[72] = { 1, LH = { 14.4, 1 } }
+					}
+				},
+				TText = TextPlus {
+					CtrlWZoom = false,
+					NameSet = true,
+					Inputs = {
+						GlobalOut = Input { Value = 20000, },
+						Width = Input { Value = 2160, },
+						Height = Input { Value = 3840, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						StyledText = Input { Value = StyledText { Value = "Subtítulo" }, },
+						Font = Input { Value = "Helvetica Neue", },
+						Style = Input { Value = "Medium", },
+						Size = Input { Value = 0.15, },
+						LineSpacing = Input { Value = 1, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						CharacterSpacing = Input { Value = 0.98, },
+						Center = Input { Value = { 0.5, 0.17 }, },
+						Red1 = Input { Value = 1, },
+						Green1 = Input { Value = 1, },
+						Blue1 = Input { Value = 1, },
+						Alpha1 = Input { Value = 1, },
+						Start = Input { Value = 0, },
+						End = Input { SourceOp = "TEnd", Source = "Value", },
+					},
+					ViewInfo = OperatorInfo { Pos = { -220, 49 } },
+				},
+				MG1Blend = BezierSpline {
+					SplineColor = { Red = 114, Green = 159, Blue = 207 },
+					NameSet = true,
+					KeyFrames = {
+						[293] = { 1, RH = { 306.2, 1 } },
+						[326] = { 0, LH = { 299.6, 0 } }
+					}
+				},
+				MG1 = Merge {
+					CtrlWZoom = false,
+					Inputs = {
+						Background = Input { SourceOp = "BG", Source = "Output", },
+						Foreground = Input { SourceOp = "TText", Source = "Output", },
+						Blend = Input { SourceOp = "MG1Blend", Source = "Value", },
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 0, 49 } },
+				},
+				Stretch = KeyStretcher {
+					CtrlWShown = false,
+					Inputs = {
+						Keyframes = Input { SourceOp = "MG1", Source = "Output", },
+						SourceEnd = Input { Value = 360, },
+						StretchStart = Input { Value = 106, },
+						StretchEnd = Input { Value = 283, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 110, 49 } },
+				},
+			}
+		}
+	}
+}
