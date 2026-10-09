@@ -1,0 +1,158 @@
+{
+	Tools = ordered() {
+		Foto_Estilo_Torralbo = GroupOperator {
+			NameSet = true,
+			Name = "Foto_Estilo_Torralbo",
+			ControlsOrder = { 1, 2, 3, 4, 5, 6, 7 },
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					Source = "Input1",
+				},
+				CornerRadius = InstanceInput {
+					Source = "Background1.CornerRadius",
+					Name = "Radio Esquinas",
+					Default = 0.02,
+				},
+				ShadowColor = InstanceInput {
+					Source = "Background2.Color",
+					Name = "Color Sombra",
+					Default = { 0, 0, 0, 1 },
+				},
+				ShadowOffsetX = InstanceInput {
+					Source = "Merge1.Center.X",
+					Name = "Sombra Offset X",
+					Default = 0.005,
+				},
+				ShadowOffsetY = InstanceInput {
+					Source = "Merge1.Center.Y",
+					Name = "Sombra Offset Y",
+					Default = -0.005,
+				},
+				ShadowBlur = InstanceInput {
+					Source = "Blur1.BlurSize",
+					Name = "Difuminado Sombra",
+					Default = 0.015,
+				},
+				ShadowOpacity = InstanceInput {
+					Source = "Merge2.Blend",
+					Name = "Opacidad Sombra",
+					Default = 0.4,
+				},
+			},
+			Outputs = {
+				Output1 = InstanceOutput {
+					Source = "Merge2",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 0, 0 },
+				Flags = {
+					AllowPan = false,
+					AllowZoom = false,
+					AllowFit = true,
+					ShowUI = true,
+				}
+			},
+			Tools = ordered() {
+				Input1 = Plasma {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Width = Input { Value = 1920 },
+						Height = Input { Value = 1080 },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" } },
+					},
+					ViewInfo = OperatorInfo { Pos = { -275, -49.5 } },
+				},
+				Background1 = Background {
+					CtrlWShown = false,
+					Inputs = {
+						Width = Input { Value = 1920 },
+						Height = Input { Value = 1080 },
+						CornerRadius = Input {
+							Value = 0.02,
+							Expression = ":CornerRadius",
+						},
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" } },
+					},
+					ViewInfo = OperatorInfo { Pos = { -165, -49.5 } },
+				},
+				Merge3 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							Source = "Background1",
+						},
+						Foreground = Input {
+							Source = "Input1",
+						},
+						PerformDepthMerge = Input { Value = 0 },
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, -49.5 } },
+				},
+				Background2 = Background {
+					CtrlWShown = false,
+					Name = "ShadowColor",
+					Inputs = {
+						Width = Input { Value = 1920 },
+						Height = Input { Value = 1080 },
+						CornerRadius = Input {
+							Source = "Background1.CornerRadius",
+						},
+						Color = Input {
+							Value = { 0, 0, 0, 1 },
+							Expression = ":ShadowColor",
+						},
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" } },
+					},
+					ViewInfo = OperatorInfo { Pos = { -275, 16.5 } },
+				},
+				Blur1 = Blur {
+					CtrlWShown = false,
+					Inputs = {
+						Input = Input {
+							Source = "Background2",
+						},
+						BlurSize = Input {
+							Value = 0.015,
+							Expression = ":ShadowBlur",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -165, 16.5 } },
+				},
+				Merge1 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Center = Input {
+							Value = { 0.505, 0.495 },
+							Expression = ":ShadowOffsetX :ShadowOffsetY",
+						},
+						Background = Input {
+							Source = "Blur1",
+						},
+						PerformDepthMerge = Input { Value = 0 },
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, 16.5 } },
+				},
+				Merge2 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							Source = "Merge1",
+						},
+						Foreground = Input {
+							Source = "Merge3",
+						},
+						Blend = Input {
+							Value = 0.4,
+							Expression = ":ShadowOpacity",
+						},
+						PerformDepthMerge = Input { Value = 0 },
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, -16.5 } },
+				},
+			},
+		},
+	},
+	ActiveTool = "Foto_Estilo_Torralbo"
+}

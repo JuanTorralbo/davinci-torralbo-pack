@@ -1,0 +1,2 @@
+stable-ts==2.19.1
+openai-whisper==20250625

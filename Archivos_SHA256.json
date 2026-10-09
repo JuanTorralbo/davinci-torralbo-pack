@@ -1,0 +1,178 @@
+[
+  {
+    "archivo": "Extras_experimentales/Foto_Estilo_Torralbo.setting",
+    "sha256": "a6a2a2db754fc0456e16047380506f2d094cb130fdc3e4c6348caa6e048c2d5d"
+  },
+  {
+    "archivo": "Extras_experimentales/ResaltadorAmarillo.setting",
+    "sha256": "146e9ad9643ff18f48e374388d2bdd6129a82e7da1a1f81c2fb6d5888de242a7"
+  },
+  {
+    "archivo": "FlowLyrics_opcional/Preparar_alineacion.py",
+    "sha256": "06d13381be059df61003ef3e4ee3a023647e326b783ada59d9b8ac50e472c129"
+  },
+  {
+    "archivo": "FlowLyrics_opcional/flowlyrics_align.py",
+    "sha256": "9ab7ea38c12dc3d89852c094e20c541290e441cb3becad809486cfb048652580"
+  },
+  {
+    "archivo": "FlowLyrics_opcional/requirements.txt",
+    "sha256": "d53a76e2d70b48a9536c9844384d5ae46fca19c58cfd01df16b68516721043ae"
+  },
+  {
+    "archivo": "Fusion/Scripts/Utility/Marker Shorts.py",
+    "sha256": "5dd1208b012ef7d657cbb48bd1c4cde32fdc6dc4d02b087fe19ad3387ca06bd6"
+  },
+  {
+    "archivo": "Fusion/Scripts/Utility/Pegar imagen de internet.lua",
+    "sha256": "6d714b8239a81a0b3161ba0dfaf6edc07d70dca924c6061c59468e37fa9a0ff2"
+  },
+  {
+    "archivo": "Fusion/Scripts/Utility/ResolveWebBridge/bridge.py",
+    "sha256": "b68a1a8c5571e01c984bd6563d5fdf03077b85495128cba02a0e9eedbd0cb4a2"
+  },
+  {
+    "archivo": "Fusion/Scripts/Utility/ResolveWebBridge/clipboard",
+    "sha256": "51323aae6832d7c02c3672def5174730e9ba81ed08ce775c7c2a4132e7a1ac27"
+  },
+  {
+    "archivo": "Fusion/Scripts/Utility/ResolveWebBridge/clipboard.swift",
+    "sha256": "c968e0436529c416f0a6275994fd307953f04664dc7f089fa837924c506b7650"
+  },
+  {
+    "archivo": "Fusion/Scripts/Utility/YouTube a DaVinci.lua",
+    "sha256": "ca72efb413768ac1a19ea0f57d643ba7f75d29e135c5f9f345777aaa08b2bb20"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Generators/Torralbo Pack/Subrayador Permanente.setting",
+    "sha256": "ec6ff351c7886b993c686bacc7d5567364b26008c8b9d9050949d9e7a35872a1"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Subtitulos 9-16 60p/01 Blur Fade Sub.setting",
+    "sha256": "c0d42f303799f0c8f87b85455b9e7460e8b989f849012ceeb10e1e8f34ce39c3"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Subtitulos 9-16 60p/02 Tracking In Sub.setting",
+    "sha256": "8cd2092459f1b991a4b3dde9d8fb5a31ea14179cc0022d507832e05fdba58408"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Subtitulos 9-16 60p/03 Mask Rise Sub.setting",
+    "sha256": "8524dc9919505075e53f3fb760f6abe2d60e775f5dfdb0eedf56b110b5632a39"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Subtitulos 9-16 60p/04 Word Cascade Sub.setting",
+    "sha256": "c651c5c24a68afbd1868214a2df26a57ef212929dcc5f7f66cb10858c30662c8"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Subtitulos 9-16 60p/05 Character Drift Sub.setting",
+    "sha256": "d401eeb81f6f7fb35481778fbb4772e68978714910a0de38856d4255134974a6"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Subtitulos 9-16 60p/06 Scale Settle Sub.setting",
+    "sha256": "87488205002194e75c7fd169d3fcfb01e6d6035099ac856a6a3e92ec02f280f8"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Subtitulos 9-16 60p/07 Depth Push Sub.setting",
+    "sha256": "b3265051f153cbb5b0f5e653275038333c1cd598549c97b095026ed108b23ffc"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Subtitulos 9-16 60p/08 Hairline Sub.setting",
+    "sha256": "043f92bca091ce7233e7be6c68bf220d7b4438afe85bd27c29e7944bdac8ff87"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Subtitulos 9-16 60p/09 Light Sweep Sub.setting",
+    "sha256": "76a78d5e319300605cbc333027e9144a271be9f608ac129fd68a13d8f0532b84"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Subtitulos 9-16 60p/10 Write On Sub.setting",
+    "sha256": "cebb96d3d568cceefc6a8a7ad805f9b20894d40a27ee8062f35e2c18b3c9d1af"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Titulos 9-16 60p/01 Blur Fade.setting",
+    "sha256": "47ba4b08d9357c1e423a318cd6c8db7d82e8cf78dbb500acdd43eb1aa2cdae34"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Titulos 9-16 60p/02 Tracking In.setting",
+    "sha256": "21d6a8f6f3debd425bf69014c57073284fb901e8b253920b1210a2aebf12c48f"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Titulos 9-16 60p/03 Mask Rise.setting",
+    "sha256": "f0f7b37d468bf380d06aeaab8e353432b0c67d3f9141a7c638c59090a8511bfd"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Titulos 9-16 60p/04 Word Cascade.setting",
+    "sha256": "e0c948c3185844e2294f91651992c8075ff8c6a8d5d669af8e283aefcbe18f7c"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Titulos 9-16 60p/05 Character Drift.setting",
+    "sha256": "fef09de42e90bf6d20b224a0eaef4ff29d8c63e792b2835ee4aa74eabb956926"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Titulos 9-16 60p/06 Scale Settle.setting",
+    "sha256": "fcfd15bd2632bea8ebe531216222c48393d1d5c408801018cd0f08b44ed76d2f"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Titulos 9-16 60p/07 Depth Push.setting",
+    "sha256": "dad6472f30e4aa25f2fa6da875651ed6de4683780da15f7de5e096a466bccd39"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Titulos 9-16 60p/08 Hairline.setting",
+    "sha256": "17e6dc0c1db321f5a963e6fcd277e28364af460cf4f90e5644360b5d1aef36fd"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Titulos 9-16 60p/09 Light Sweep.setting",
+    "sha256": "c40f413a0dbb1f0243569bceebe49bacb5da1afe77c31b39c40c90cd23d8bb8c"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Titles/Elegantes Titulos 9-16 60p/10 Write On.setting",
+    "sha256": "aba9f0eacc0ae6e77bbfe5fe23681acdf75c3cb532d450fff167a3ce0dce2b38"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Transitions/Desenfoque Elegante/01 Blur Dissolve.setting",
+    "sha256": "543f32fe9dfa8d91847d12b47be68c14e127ac04b8b276b6ae477ce8f3a9ae43"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Transitions/Desenfoque Elegante/02 Blur Zoom.setting",
+    "sha256": "c8f5a5008a8e7bf0b442771bba55a531f3e28ae2496bc8692dbae1d26a90d0ff"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Transitions/Desenfoque Elegante/03 Blur Bloom.setting",
+    "sha256": "efc5f828a92e8020325b58bc12fb662bdf3dc5685546179eba30aa687198e609"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Transitions/Desenfoque Elegante/04 Blur Slide.setting",
+    "sha256": "ac184c8ca698506f9e25ac15201e04aff35e6ea05bb75583582be153314c5068"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Transitions/Desenfoque Elegante/05 Blur Whip.setting",
+    "sha256": "4723cfef8dcfcdc5f6719d9aec1a6f733b05e4d38419e28c10dd4e7e75a370c7"
+  },
+  {
+    "archivo": "Fusion/Templates/Edit/Transitions/Desenfoque Elegante/06 Blur Dip.setting",
+    "sha256": "9edda7e2d5a411340d1f91e83f481055a44374345fa375ecc1ac36472104546c"
+  },
+  {
+    "archivo": "Instalar_macOS.py",
+    "sha256": "f72dad691fdfb6be654252efacdf4eb26ae1487fe10c9ea2af2e9945aaef34b3"
+  },
+  {
+    "archivo": "Inventario.md",
+    "sha256": "7667c9e616b177dbdb6ec391486f5f815cdb63f8cb72a63525fd1e46472843b1"
+  },
+  {
+    "archivo": "LEEME.md",
+    "sha256": "fae26797054caf2956e8d82ab865e575c9b65546cbeb8757cb7a9db67000fc5f"
+  },
+  {
+    "archivo": "LICENSE.txt",
+    "sha256": "7ec8cd2bdf02ce8ad8a1dcd289420d596276a29972f214713ab170ea7733050c"
+  },
+  {
+    "archivo": "Presets_Torralbo.drfx",
+    "sha256": "1ff17edf39d26df2b5675177b7bb28d45cbdfbeb1fc69ff20a577672481a029b"
+  },
+  {
+    "archivo": "Workflow_Integration/FlowLyrics.py",
+    "sha256": "d6196e73a93239a47ebd9f22e97b3ab69501dd210c4e55f832751d0cc547bbe8"
+  }
+]
