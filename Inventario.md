@@ -73,4 +73,4 @@ Incluidos: 29 presets (27 principales y 2 experimentales) y 4 herramientas. Se h
 
 ## Licencia
 
-LICENSE.txt contiene la licencia MIT del código y los presets personalizados de Juan Torralbo. Desarrollo parcialmente asistido por IA.
+LICENSE.txt contiene la licencia MIT del código y los presets personalizados de Juan Torralbo.
